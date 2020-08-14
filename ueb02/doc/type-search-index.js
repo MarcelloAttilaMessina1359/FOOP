@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"streamops","l":"Person.Gender"},{"p":"streamops","l":"Person"},{"p":"streamops","l":"PrintableChar"},{"p":"streamops","l":"StreamOperations"}]

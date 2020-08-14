@@ -1,0 +1,118 @@
+Index: src/values/IntValue.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/values/IntValue.java	(date 1589413940876)
++++ src/values/IntValue.java	(date 1589413940876)
+@@ -5,7 +5,7 @@
+ 
+ /**
+  * Ein Wert für Ganzzahlen (int).
+- * 
++ *
+  * @author kar, mhe, Marcello
+  */
+ public class IntValue extends Value<IntValue> implements DividableValue<IntValue> {
+Index: src/expressions/binary/AddExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/binary/AddExpression.java	(date 1589968945789)
++++ src/expressions/binary/AddExpression.java	(date 1589968945789)
+@@ -35,4 +35,6 @@
+             DivByZeroException {
+         return left.evaluate(c).add(right.evaluate(c));
+     }
++
++
+ }
+Index: src/expressions/binary/BinaryExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/binary/BinaryExpression.java	(date 1589971439361)
++++ src/expressions/binary/BinaryExpression.java	(date 1589971439361)
+@@ -1,6 +1,5 @@
+ package expressions.binary;
+ 
+-
+ import expressions.AbstractExpression;
+ import expressions.Expression;
+ import values.Value;
+@@ -37,14 +36,13 @@
+     @Override
+     public boolean isConst() {
+ 
+-        return left.isConst() | right.isConst();
++        return left.isConst() & right.isConst();
+     }
+-
+ 
+     @Override
+     public StringBuilder toString(StringBuilder builder) {
+-        return builder.append("(").append(left.toString()).append(" ")
+-                .append(getOp()).append(" ").append(right.toString())
++        return builder.append("(").append(left.toString(builder)).append(" ")
++                .append(getOp()).append(" ").append(right.toString(builder))
+                 .append(")");
+     }
+ 
+Index: src/expressions/VarExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/VarExpression.java	(date 1589969422012)
++++ src/expressions/VarExpression.java	(date 1589969422012)
+@@ -6,6 +6,7 @@
+ import expressions.exceptions.DivByZeroException;
+ import values.Value;
+ 
++
+ /**
+  * Ein variabler Ausdruck.
+  * 
+Index: src/expressions/ConstExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/ConstExpression.java	(date 1589969422052)
++++ src/expressions/ConstExpression.java	(date 1589969422052)
+@@ -41,4 +41,5 @@
+     public StringBuilder toString(StringBuilder builder) {
+         return builder.append(this.value);
+     }
++
+ }
+Index: src/expressions/ExpressionWrapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/ExpressionWrapper.java	(date 1589969422100)
++++ src/expressions/ExpressionWrapper.java	(date 1589969422100)
+@@ -44,6 +44,7 @@
+         return this.subExpression.toString(builder);
+     }
+ 
++
+     @Override
+     public boolean equals(Object other) {
+         if (other instanceof ExpressionWrapper) {
+Index: src/expressions/AbstractExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/expressions/AbstractExpression.java	(date 1589969422144)
++++ src/expressions/AbstractExpression.java	(date 1589969422144)
+@@ -1,5 +1,4 @@
+ package expressions;
+-
+ import expressions.binary.BinaryExpression;
+ import values.Value;
+ 

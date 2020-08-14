@@ -1,0 +1,25 @@
+{
+  "_raw_map": {
+    "true": {},
+    "key": {
+      "_boolean_true": false,
+      "_boolean_false": false
+    },
+    "4.2": 42,
+    "\" \"": "value"
+  },
+  "_obj": {
+    "_boolean_true": true,
+    "_boolean_false": false,
+    "_Boolean_true": true,
+    "_Boolean_false": false
+  },
+  "_map": {
+    "o": {
+      "_boolean_true": true,
+      "_boolean_false": false,
+      "_Boolean_true": true,
+      "_Boolean_false": false
+    }
+  }
+}
